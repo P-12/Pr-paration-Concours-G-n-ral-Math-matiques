@@ -1,0 +1,247 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}  
+\usepackage[T1]{fontenc}       
+\usepackage[francais]{babel}
+\usepackage{fullpage}
+%\usepackage{euler}
+\usepackage{amsmath}
+%\usepackage{framed}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{mathrsfs}
+\usepackage[squaren,Gray]{SIunits}
+\usepackage{graphicx}
+\usepackage[a4paper]{geometry}
+\geometry{hscale=0.86,vscale=0.87,centering}
+
+\pagestyle{empty}
+
+%\newcommand{\Titre}[4]{\noindent \textsc{#1}} \hfill \textbf{\textsc{#2}}\\ #3 \hfill \emph{#4}\\  \hrule\vspace{\baselineskip}}
+
+\newcommand{\Titre}[3]{\begin{center} {\LARGE\textbf{\textsc{#1}}}\\ #2 \hfill \emph{#3} \\  \hrule\vspace{\baselineskip}\end{center}}
+
+\begin{document}
+
+
+\Titre{Préparation au concours Général \\  Arithmétique - Correction}{Asp J.Buet}{mars 2014}
+\thispagestyle{plain}
+\pagestyle{plain}
+
+
+%\title{DM de Mathématiques}
+%\date{19 novembre 2013}
+%\author{Asp. J.Buet}
+%\maketitle{}
+
+\section{Cours}
+
+\begin{itemize}
+
+\item \textbf{Principe des tiroirs}
+On jette de manière aléatoire de la peinture blanche et de la peinture noire sur une table de $\unit{2}{\meter}$ par $\unit{3}{\meter}$. 
+Montrez que l'on peut forcément trouver deux points, distants d'un mètre, de la même couleur.
+
+Pour cela, on place un triangle équilatéral d'un mètre de côté sur la table. Chacun des sommets est sur une zone coloriée en blanc ou en noir. Il y a trois
+sommets et deux couleurs, donc il y a au moins deux sommets de la même couleur. Ils sont distants d'un mètre.
+
+\item \textbf{Théorème des restes chinois}
+
+\textbf{Exemple classique : } Une bande de $17$ pirates possède un trésor constitué de pièces d'or d'égale valeur. Ils projettent de se les partager également
+et de donner le reste au cuisinier chinois. Celui-ci recevrait alors $3$ pièces. Mais les pirates se querellent, et six d'entre eux sont tués. Un nouveau 
+partage donnerait au cuisinier $4$ pièces. Dans un naufrage ultérieur, seuls le trésor, six pirates et le cuisinier sont sauvés, et le partage donnerait alors
+$5$ pièces d'or à ce dernier. Quelle est la fortune minimale que peut espérer le cuisinier s'il décide d'empoisonner le reste des pirates\,?
+
+On doit résoudre le système
+$$\left\lbrace
+\begin{array}{rcl}
+n &\equiv& 3 \pmod{17} \\
+n &\equiv& 4 \pmod{11} \\
+n &\equiv& 5 \pmod{6}
+\end{array}\right.$$
+ $17$, $11$ et $6$ sont deux à deux premiers entre eux. D'après le théorème des restes chinois, le système admet une unique solution modulo $17\times 11\times 6=1122$.
+On cherche $u_1$ et $v_1$ tels que $u_1\times 11\times 6 + v_1\times 17 = 1$. On applique l'algorithme d'Euclide :
+$$\begin{array}{ccl}
+66 & = & 3\times 17+15 \\
+17 & = & 15\times 1 + 2 \\
+15 &=& 2\times 7+1
+\end{array}.$$
+Donc en remontant l'algorithme, on a :
+$$\begin{array}{ccl}
+1&=& 15-2\times 7 \\
+&=& 15- (17-15)\times 7 \\
+&=& (66-3\times 17)-(17-(66-3\times 17))\times 7 \\
+&=& 8\times 66 - 37\times 17
+\end{array}.$$
+On a donc $u_1=8$ et $v_1=-31$.
+
+On cherche $u_2$ et $v_2$ tels que $u_2\times 17 \times 6+11\times v_2$. De la même manière on obtient $u_2=4$ et $v_2=-37$.
+
+On chercher $u_3$ et $v_3$ tels que $u_3\times 17\times 11 + 6\times v_3=1$. De la même manière on obtient $u_3=1$ et $v_3=-31$.
+
+D'après la méthode donnée dans la démonstration du théorème des restes chinois, une solution du système est : $8\times 3 \times 6 \times 11+ 4\times 4 \times
+17 \times 6+1\times 5 \times 17\times 11=4151$. Pour avoir la plus petite solution possible, on regarde $4151 \pmod{1122}$ soit $785$.
+
+Le cuisinier peut espérer avoir au moins $785$ pièces d'or.
+
+\end{itemize}
+
+\section{Exercices}
+
+\begin{enumerate}
+\bigskip
+\item $p-1$, $p$ et $p+1$ sont trois nombres consécutis. Donc il y en a au moins un qui est divisible par $3$ et ce n'est pas $p$. $p$ est impair car c'est un
+nombre premier $\geqslant 5$. Donc $p-1$ et $p+1$ sont paires et l'un des deux est un multiple de $3$. De plus $p-1$ et $p+1$ sont deux nombres paires 
+consécutifs donc l'un des deux est divisible par $4$. Finalement $(p-1)(p+1)$ est divisible par $2\times 4\times 3$ donc $p^2-1$ est divisible par $24$.
+\bigskip
+\item On regarde modulo $4$.
+
+$(-1)^n-2^m\equiv 1\pmod{4}$. Pour $m\geqslant 2$, on obtient $(-1)^n\equiv 1 \pmod{4}$. Donc $n$ est pair. On note $n=2k$.
+$$
+\begin{array}{rcl}
+3^{2k}-1&=&2^m\\
+(3^k-1)(3^k+1)&=&2^m\\
+2\alpha(2\alpha+2)&=&2^m
+\end{array}$$
+
+En effet, $3^k-1$ et $3^k+1$ sont deux entiers pairs consécutifs. Et ces deux entiers sont des puissances de $2$. Les deux seuls entiers pairs consécutifs qui
+sont des puissances de $2$ sont $2$ et $4$. Donc on a forcément $k=1$. Les seuls couples $(n,m)$ convenables sont donc $(1,1)$ et $(2,3)$.
+\bigskip
+\item On calcule $(1+1)^n$, $(1+j)^n$ et $(1+j^2)^n$ avec le binôme de Newton ($j$ est le complexe $e^{2i\pi/3}$, $j^2=\bar{j}$, $j^3=1$ et $1+j+j^2=0$).
+$$\begin{array}{rcl}
+(1+1)^n&=&\sum\limits_{k=0}^n\binom{n}{k} \\
+(1+j)^n &=&\sum\limits_{k=0}^n\binom{n}{k}j^k \\
+(1+j^2)^n&=&\sum\limits_{k=0}^n\binom{n}{k}j^{2k}\\
+(1+1)^n+(1+j)^n+(1+j^2)^n&=&\sum\limits_{k=0}^n\binom{n}{k}(1+j^k+j^{2k})
+\end{array}. $$
+Calculons $1+j^k+j^{2k}$ selon les valeurs de $k$ modulo 3.
+
+Si $k\equiv 0 \pmod{3}$, $1+j^k+j^{2k}=1+1+1=3$.
+
+Si $k\equiv 1\pmod{3}$, $1+j^k+j^{2k}=1+j+j^2=0$.
+
+Si $k\equiv 2\pmod{3}$, $1+j^k+j^{2k}=1+j^2+j=0$.
+
+Finalement, on a donc :
+$$\sum\binom{n}{3k}=\frac{(1+1)^n+(1+j)^n+(1+j^2)^n}{3}$$
+\bigskip
+\item
+Pour avoir le chiffre des dizainese de milliers, on regarde le reste dans la division par $10^5$. Or $10^5=2^5\times 5^5$.
+Regardons le reste de la division de $5^{5^{5^{5^{5}}}}$ par $2^5$. Or $\varphi(2^5)=16$ (car $\varphi(p^r)=p^r-p^{r-1}$). Donc il suffit de déterminer le reste
+de la division de $5^{5^{5^{5}}}$ par $16$.
+
+Comme $\varphi(16)=8$, il suffit de nouveau de déterminer le reste de la division euclidienne de $5^{5^{5}}$ par $8$. Comme $\varphi(8)=4$, il suffit 
+de déterminer le reste de la division euclidienne de $5^5$ par $4$. Et comme $\varphi(4)=2$, en prenant le chemin inverse et en appliquant le théorème d'Euler
+, on a : 
+
+$$\begin{array}{c}
+5^{2.\varphi(4)+1}\equiv 5^1 \pmod{4} \text{ d'après le théorème d'Euler} \\
+5^{5^5}\equiv 5^{k.\varphi(8)+5}\equiv 5^5\equiv 5^{\varphi(8)+1}\equiv 5 \pmod{8} \\
+5^{5^{5^{5}}}\equiv 5^5 \equiv 3125 \equiv 5 \pmod{16} \\
+5^{5^{5^{5^{5}}}}\equiv 5^5 \pmod{2^5}.
+\end{array}$$
+Et finalement on a : $5^{5^{5^{5^{5}}}}\equiv 5^5 \pmod{2^5\times 5^5}$. Or $5^5=3125$, ce qui implique que le chiffre des dizaines de milliers du nombre en question
+est $0$.
+\end{enumerate}
+\section{Problème : Concours Général 2012 - les premiers sont en haut, les exposants sont en bas}
+Correction de PIERRE CORNILLEAU
+\noindent
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item On a $2012=4\times 503=2^2\times 503$. Par définition on a donc :
+$$\boxed{f(2012)=2^2\times 1^{503}=4.}$$
+\item On a d'abord $36^{36}=(4\times 9)^{36}=2^{72}3^{72}$. Donc 
+$$\boxed{f(36^{36})=72^5=(8\times 9)^5=2^{15}3^{10}}$$
+et donc
+$$\boxed{f^2(36^{36})=15^210^3=2^33^25^5}$$
+puis finalement
+$$\boxed{f^3(36^{36})=3^22^35^5=f^2(36^{36}).}$$
+Ainsi, pour tout $n\in\mathbb{N}$, $f^{n+2}(36^{36})=f^n(f^2(36^{36}))=f^n(f^3(36^{36}))=f^{n+3}(36^{36})$ et les termes suivants sont tous égaux.
+\end{enumerate}
+\item
+\begin{enumerate}
+\item D'après l'énoncé, on a $f(128)=49\neq 128$ et ainsi, puisque $49=7^2$, $f^2(128)=2^7=128$ et nécessairement $f^2(49)=49$.
+
+On a ainsi, pour tout $n\in\mathbb{N}$, $f^{2(n+1)}(128)=f^{2n}(f^2(128))=f^{2n}(128)$ et la suite $(f^{2n}(128))_{n\in\mathbb{N}}$ est donc constante (égale à $128$).
+De même, on montre que $(f^{2n+1}(128))_{n\in\mathbb{N}})$ est constante (égale à $49$) et finalement, pour tout $i\in\mathbb{N}$ ,
+$$ \boxed{f^{i+2}(128)=f^i(128) \text{ et } f^{i+1}(128)\neq f^i(128).}$$ 
+\item On a toujours, d'après l'énoncé, $f(128)=49$ et $f(49)=128 > f(128)$, donc \underline{$f$ n'est pas croissante}. De même, on a $f(720)=128$ et 
+$f(128)=49 < f(720)$ donc \underline{ $f$ n'est pas décroissante}.
+\end{enumerate}
+\item 
+\begin{enumerate}
+\item L'équation $f(n)=1$ se réécrit $a_1^{p_1}...a_k^{p_k}=1$ et puisque $a_1, ..., a_k$ sont des entiers non nuls, on a nécessairement $a_1=...=a_k=1$ et 
+finalement $n=p_1...p_k$. $k$ étant quelconque, les solutions $f(n)=1$ sont \underline{les produits de nombres premiers deux à deux distincts}.
+\item L'équation s'écrit $a_1^{p_1}...a_k^{p_k}=2$ et l'un au moins des entiers $a_i$ est supérieur à $2$. Puisque $p_i\geqslant 2$, le mebre de gauche de 
+l'égalité est plus grand que $4$ et \underline{il n'y a pas de solutions à l'équation $f(n)=2$}.
+\item L'équation s'écirt $a_1^{p_1}...a_k^{p_k}=4$ ; l'un des entiers $a_i$ est supérieur à $2$ et puisque $p_i\geqslant 2$, on a nécessairement $p_i=2$ et 
+$a_j=1$ si $i\neq j$. $k$ étant quelconque, l'ensemble cherché est :
+$$\boxed{\{4p_1...p_k\text{ avec }k\in\mathbb{N}^*, p_1,..., p_k \text{ nombres premiers deux à deux distincts et différents de } 2\}.}$$
+\end{enumerate}
+\item
+\begin{enumerate}
+\item Si $b=0$ ou $1$, le résultat est acquis. Fixons $a\geqslant 2$ et montrons par récurrence sur $b\in\mathbb{N}^*$ que $ab\leqslant a^b$.
+\begin{itemize}
+\item L'initialisation a été faite ci-dessus.
+\item Si le résultat est acquis pour $b\in\mathbb{N}^*$, on a alors 
+$$a(b+1)=ab +a\leqslant a^b +a \leqslant a^b+a^b \leqslant 2a^b \leqslant a^{b+1}$$
+puisque $b\geqslant 1$ et $a\geqslant 2$. Ainsi
+$$\boxed{ \text{si } a\geqslant 2 \text{ et } b\geqslant 0, \text{  on a bien } ab\leqslant a^b.}$$
+\end{itemize}
+\item Procédons cette fois-ci par récurrence sur le nombre d'entiers $k\in\mathbb{N}^*$.
+\begin{itemize}
+\item Si $k=1$, le résultat est vrai d'après la question précédente.
+\item Si le résultat est acquis pour $k\in\mathbb{N}^*$, il suffit de traiter le cas où tous les $(b_i)_{1\leqslant i\leqslant k+1}$ sont non nuls (sinon seuls $k$ 
+entiers interviennent). Dans ce cas, on a alors 
+$$a_1b_1+...+a_kb_k+a_{k+1}b_{k+1}\leqslant a_1^{b_1}...a_k^{b_k}+a_{k+1}^{b_{k+1}}$$
+d'après la question précédente et l'hypothèses de récurrence. On note $x$ et $y$ les deux entiers du membre de droite de l'inégalité. Il suffit maintenant de 
+montrer que 
+$$x+u\leqslant xy \text{ soit encore } 1\leqslant (x-1)(y-1)$$
+ce qui est vrai car, les entiers $a_i$ étant supérieurs à $2$, on a $x,y\geqslant 2$.
+
+Ainsi, si $k\in\mathbb{N}^*$, $a_1,...,a_k$ des entiers supérieurs à $2$ et $b_1,...,b_k$ sont des entiers
+$$\boxed{a_1b_1+...+a_kb_k\leqslant a_1^{b_1}...a_k^{b_k}}$$
+
+\end{itemize}
+\item On reprend les notations que la question $3$ et on décompose les nombres $a_1,...,a_k$ en facteurs premiers. En notant $\mathcal{P}$ les nombres premiers 
+(intervenant dans l'une des décompositions des $a_i$), on peut écrire :
+$$\forall i\in\{1,...,k\}, a_i=\prod\limits_{p\in \mathcal{P}}p^{b_i(p)}$$
+où $b_i(p)$ peut être égal à $0$. On a alors :
+$$\begin{array}{rl}
+f(n)&=a_1^{p_1}...a_k^{p_k}\\
+ &=(\prod\limits_{p\in \mathcal{P}}p^{b_1(p)})^{p_1}...(\prod\limits_{p\in \mathcal{P}}p^{b_k(p)})^{p_k}\\
+ &= \prod\limits_{p\in\mathcal{P}}p^{p_1b_1(p)+...+p_kb_k(p)}.
+\end{array}$$
+Ainsi, $f(f(n))=\prod\limits_{p\in\mathcal{P}}(p_1b_1(p)+...+p_kb_k(p))^p$. On a d'abord, d'après la question précédente, et pour tout $1\leqslant i \leqslant k$,
+$1b_1(p)+...+p_kb_k(p)\leqslant p_1^{b_1(p)}...p_k^{b_k(p)}$, et donc $f(f(n))\leqslant p_1^{\sum\limits_{p\in\mathcal{P}}pb_1(p)}...p_k^{\sum\limits_{p\in\mathcal{P}}pb_k(p)}.$
+
+Maintenant, la question précédente nous fournit également, pour tou $1\leqslant i \leqslant k$, $\sum\limits_{p\in\mathcal{P}}pb_i(p)\leqslant\prod
+\limits_{p\in\mathcal{P}}p^{b_i(p)}=a_i$, et finalement
+$$\boxed{f(f(n))\leqslant p_1^{a_1}...p_k^{a_k}=n}$$
+\item D'après la question précédente, les deux suites $(f^{2k}(n))_{k\in\mathbb{N}}$ et $(f^{2k+1}(n))_{k\in\mathbb{N}}$ sont décroissantes. En utilisant la descente 
+infinie, ces suites sont constantes à partir d'un certain rang. On a donc :
+$$\exists k_1,k_2 \in \mathbb{N} ;  \forall k\geqslant k_1, f^{2k}(n)=f^{2k_1}(n) \text{ et } \forall k\geqslant k_2, f^{2k+1}(n)=f^{2k_2+1}(n).$$
+Finalement, pour tout $i\geqslant \max(2k_1,2k_2+1)=r$,
+$$\boxed{f^{i+2}(n)=f^i(n).}$$
+\end{enumerate}
+\item 
+\begin{enumerate}
+\item Si $a$ est pair, il existe $\alpha \in\mathbb{N}$ tel que \underline{$a=2\alpha+3\beta$ avec $\beta=0$}. Sinon, $a$ est impair et supérieur à $3$, il 
+existe donc $k\in\mathbb{N}^*$ tel que $a=2k+1=2(k-1)+3\times 1$ et \underline{$(\alpha,\beta)=(k-1,1)$ convient}.
+\item Soit $n=p_1^{a_1}...p_k^{a_k} \in E$. D'après la question précédente, pour tou $1\leqslant i \leqslant k$, il existe $\alpha_i, \beta_i$, tels que 
+$$a_i=2\alpha_i+3\beta_i$$ et donc $n=(p_1^{\alpha_1}...p_k^{\alpha_k})^2(p_1^{\beta_1}...p_k^{\beta_k})^3=f(2^{p_1^{\alpha_1}...p_k^{\alpha_k}}3^{p_1^{\beta_1}...p_k^{\beta_k}})$ et on peut choisir
+\underline{$m=2^{p_1^{\alpha_1}...p_k^{\alpha_k}}3^{p_1^{\beta_1}...p_k^{\beta_k}}$}.
+\item On peut effectuer ce qui a été fait dans la question précédente ou écrir plus simplement $2012^{2012}=(2012^{1006})^2=f(2^{2012^{1006}})$ pour choisir 
+\underline{$m=2^{2012^{1006}}$}.
+\item Soit $n$ tel qu'existe $m$ vérifiant $f(m)=n$. On a, notant $m=p_1^{a_1}...p_k^{a_k}$ et en reprenant les notations de la question $4(c)$, 
+$$n=\prod\limits_{p\in\mathcal{P}}p^{p_1b_1(p)+...+p_kb_k(p)}$$
+et il suffit alors de constater que, pour tout $p\in\mathcal{P}$,
+\begin{itemize}
+\item soit $p_1b_1(p)+...+p_kb_k(p)=0$ et alors $b_1(p)=...=b_k(p)=0$,
+\item soit il existe $i$ tel que $b_i(p)\geqslant 1$ et donc, puisque $p_i\geqslant 2$, $p_1b_1(p)+...+p_kb_k(p)\geqslant b_i(p)p_i\geqslant 2$.
+\end{itemize}
+On a donc bien $n\in E$ et \underline{la réciproque de $(b)$ est vraie}.
+\end{enumerate}
+\end{enumerate}
+\end{document}
