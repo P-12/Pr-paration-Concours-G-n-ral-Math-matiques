@@ -1,0 +1,174 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}  
+\usepackage[T1]{fontenc}       
+\usepackage[francais]{babel}
+\usepackage{fullpage}
+%\usepackage{euler}
+\usepackage{amsmath}
+%\usepackage{framed}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{mathrsfs}
+\usepackage[squaren,Gray]{SIunits}
+\usepackage{graphicx}
+\usepackage[a4paper]{geometry}
+\geometry{hscale=0.86,vscale=0.87,centering}
+
+\pagestyle{empty}
+
+%\newcommand{\Titre}[4]{\noindent \textsc{#1}} \hfill \textbf{\textsc{#2}}\\ #3 \hfill \emph{#4}\\  \hrule\vspace{\baselineskip}}
+
+\newcommand{\Titre}[3]{\begin{center} {\LARGE\textbf{\textsc{#1}}}\\ #2 \hfill \emph{#3} \\  \hrule\vspace{\baselineskip}\end{center}}
+
+\begin{document}
+
+
+\Titre{Préparation au concours Général \\  Arithmétique}{Asp J.Buet}{mars 2014}
+\thispagestyle{plain}
+\pagestyle{plain}
+
+
+%\title{DM de Mathématiques}
+%\date{19 novembre 2013}
+%\author{Asp. J.Buet}
+%\maketitle{}
+
+\section{Cours}
+
+\begin{itemize}
+\item Connaître le cours d'arithmétique de spécialité mathématique.
+\bigskip
+\item Connaître le principe de récurrence et la récurrence forte.
+\bigskip
+\item \textbf{Principe des tiroirs} Si $n$ balles sont placées dans $k$ tiroirs, au moins un tiroir contiendra $\lceil n/k \rceil$ balles ou plus.
+
+\bigskip
+Par exemple, si vous avez des chaussettes vertes et des chaussettes bleues, indiscernables au touché, rangées en vrac. Votre chambre est dans le noir et vous
+ voulez avoir deux chaussettes de la même couleur pour vous habiller. Il vous suffit pour cela de prendre trois chaussettes, vous en aurez forcément deux de
+la même couleur.
+
+\bigskip
+Autre exemple : on jette de manière aléatoire de la peinture blanche et de la peinture noire sur une table de $\unit{2}{\meter}$ par $\unit{3}{\meter}$. 
+Montrez que l'on peut forcément trouver deux points, distants d'un mètre, de la même couleur.
+\bigskip
+\item \textbf{La descente infinie} Tout partie non vide de $\mathbb{N}$ admet un plus petit élément. On dit que $\mathbb{N}$ est bien ordonné. Une conséquence
+de ce principe équivalent au principe de récurrence est la méthode de descente infinie découverte par Fermat.
+
+Soit une suite de propositions $P_0,P_1,...,P_n,...$ Si pour tout $k\in\mathbb{N}$ tel que $P_k$ est fausse, il existe $m\in\mathbb{N}$ tel que $P_m$ soit 
+fausse et $m<k$, alors toutes les propositions $P_0, P_1, ..., P_n, ...$ sont vraies.
+\bigskip
+\item \textbf{Indicatrice d'Euler}
+
+Soit $n$ un entier naturel $>1$. On appelle indicatrice d'Euler de $n$ que l'on note $\varphi(n)$, le nombre d'entiers naturels non nuls $\leqslant n$ et premiers avec $n$.
+
+\begin{itemize}
+\item Si $p$ est un nombre premier alors $\varphi(p)=p-1$
+\item La fonction $\varphi$ est multiplicartive, i.e., pour tout couple d'entiers naturels $m$ et $n$ premiers entre eux on a : 
+$$\varphi(mn)=\varphi(m)\varphi(n).$$
+\end{itemize}
+\bigskip
+\item \textbf{Théorème de Wilson}
+
+$p$ divise $(p-1)!+1$ si, et seulement si, $p$ est premier. (Caractérisation des nombres premiers).
+\bigskip
+\item \textbf{Théorème d'Euler}
+
+Si $a$ est premier avec $n$ alors :
+$$a^{\varphi(n)} \equiv 1 \pmod n$$
+\bigskip
+\item \textbf{Théorème des restes chinois}
+
+On considère des nombres naturels $m_1, m_2, ...,m_k, $ premiers entre eux deux à deux, et des entiers $b_1, b_2, ..., b_k$. Le système de congruences : 
+$$\left\lbrace
+\begin{array}{c}
+x \equiv b_1  \pmod {m_1}\\
+x \equiv b_2  \pmod {m_2} \\
+... \\
+x \equiv b_k \pmod {m_k}
+\end{array}\right.$$
+admet une unique solution modulo $M=m_1m_2...m_k$.
+\\
+
+Voir le poly à part pour les démonstrations et une méthode de résolution du dernier système.
+\\
+
+\textbf{Exemple classique : } Une bande de $17$ pirates possède un trésor constitué de pièces d'or d'égale valeur. Ils projettent de se les partager également
+et de donner le reste au cuisinier chinois. Celui-ci recevrait alors $3$ pièces. Mais les pirates se querellent, et six d'entre eux sont tués. Un nouveau 
+partage donnerait au cuisinier $4$ pièces. Dans un naufrage ultérieur, seuls le trésor, six pirates et le cuisinier sont sauvés, et le partage donnerait alors
+$5$ pièces d'or à ce dernier. Quelle est la fortune minimale que peut espérer le cuisinier s'il décide d'empoisonner le reste des pirates\,?
+\bigskip
+\item Vous pourrez voir en regardant les annales que l'année du concours revient souvent dans le problème. Je vous conseille donc de regarder dès maintenant
+quelques propriétés de l'entier $2014$ (diviseurs, diviseurs premiers, nombre de diviseurs, $\varphi(2014)$...).
+\end{itemize}
+
+\section{Exercices}
+
+\begin{enumerate}
+\bigskip
+\item Soit $p\geqslant 5$ un nombre premier. Montrer que $24$ divise $p^2-1$.
+\bigskip
+\item
+Trouver tous les couples $(n,m)\in\mathbb{N}^2$ tels que $3^n-2^m=1$
+\bigskip
+\item
+Calculer :
+$$\binom{n}{0}+\binom{n}{3}+\binom{n}{6}+...$$
+\bigskip
+\item
+Quel est le chiffre des dizaines de milliers du nombre $5^{5^{5^{5^{5}}}}$\,?
+\end{enumerate}
+\section{Problème : Concours Général 2012 - les premiers sont en haut, les exposants sont en bas}
+\noindent
+Pour tout entier $n\geqslant 2$, on dispose de la décomposition en facteurs premiers
+$$n=p_1^{a_1}p_2^{a_2}...p_k^{a_k}$$
+où les nombres premiers disctincts $p_1,p_2,...p_k$ sont les diviseurs premiers de $n$, et les exposants $a_1,a_2,...a_k$ sont des entiers strictement positifs
+. On pose alors 
+$$f(n)=a_1^{p_1}a_2^{p_2}...a_k^{p_k}.$$
+Par exemple, si $n=720=2^43^25^1$, on a $f(n)=4^22^31^5=128$.
+\\
+En posant de plus $f(1)=1$, on obtient une fonction $f$ de $\mathbb{N}^*$ dans $\mathbb{N}^*$.
+\\
+Enfin, pour $n\in\mathbb{N}^*$, on définit $f^i(n)$ par récurrence sur $i\in\mathbb{N}$, de façon que $f^0(n)=n$ et
+$$\text{pour tout $i\in\mathbb{N}$, } f^{i+1}(n)=f(f^i(n)).$$
+Par exemple : $f^0(720)=720, f^1(720)=f(720)=128, f^2(720)=f(128)=49.$
+\\
+Le but de ce problème est d'étudier le comportement de la fonction $f$ et des suites $(f^i(n))_{i\in\mathbb{N}}$ pour $n$ fixé.
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item Calculer $f(2012)$.
+\item Déterminer les nombres $f^i(36^{36})$ pour $0\leqslant i \leqslant 3$. Que peut-on dire des suivants\,?
+\end{enumerate}
+\item
+\begin{enumerate}
+\item Donner un exemple d'entier $n\geqslant 1$ tel que, pour tout entier naturel $i$, on ait
+$$f^{i+2}(n)=f^i(n) \text{ et } f^{i+1}(n)\neq f^i(n).$$
+\item Montrer que la fonction $f$ n'est ni croissante ni décroissante.
+\end{enumerate}
+\item Résoudre dans $\mathbb{N}^*$ :
+\begin{enumerate}
+\item l'équation $f(n)=1$ ;
+\item l'équation $f(n)=2$ ;
+\item l'équation $f(n)=4$.
+\end{enumerate}
+\item
+\begin{enumerate}
+\item Pour tous entiers $a\geqslant 2$ et $b\geqslant 0$, montrer que $ab\leqslant a^b$.
+\item Soit $k\in\mathbb{N}^*$ et soit $a_1,...,a_k,b_1,...,b_k$ des entiers tels que $a_i\geqslant 2$ et $b_i\geqslant 0$ pour tout $i$.
+
+Montrer que
+$$a_1b_1+a_2b_2+...+a_3b_3\leqslant a_1^{b_1}a_2^{b_2}...a_k^{b_k}.$$
+\item Pour tout $n\in\mathbb{N}^*$, montrer que $f(f(n))\leqslant n$.
+\item Soit $n\in\mathbb{N}^*$. Montrer qu'il existe un entier naturel $r$ tel que, pour tout entier $i\geqslant r$, on ait $f^{i+2}(n)=f^i(n)$.
+\end{enumerate}
+\item Soit $E$ l'ensemble des entiers $n\geqslant 2$ n'ayant que des exposants strictements supérieurs à $1$ dans leur décomposition en facteurs premiers.
+\begin{enumerate}
+\item Pour tout entier $a\geqslant 2$, montrer qu'il existe des entiers naturels $\alpha$ et $\beta$ tels que 
+$$a=2\alpha+3\beta.$$
+\item En déduire que si $n$ appartient à $E$, alors il existe un élément $m$ de $E$ tel que $f(m)=n$.
+\item Donner un élément $m$ de $E$ tel que $f(m)=2012^{2012}$.
+\item Que peut-on dire de la réciproque de (b)\,?
+\end{enumerate}
+\end{enumerate}
+\end{document}
