@@ -1,0 +1,86 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}  
+\usepackage[T1]{fontenc}       
+\usepackage[francais]{babel}
+\usepackage{fullpage}
+%\usepackage{euler}
+\usepackage{amsmath}
+%\usepackage{framed}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage[a4paper]{geometry}
+\usepackage{pstricks-add}
+\geometry{hscale=0.86,vscale=0.87,centering}
+
+\pagestyle{empty}
+
+%\newcommand{\Titre}[4]{\noindent \textsc{#1}} \hfill \textbf{\textsc{#2}}\\ #3 \hfill \emph{#4}\\  \hrule\vspace{\baselineskip}}
+
+\newcommand{\Titre}[3]{\begin{center} {\LARGE\textbf{\textsc{#1}}}\\ #2 \hfill \emph{#3} \\  \hrule\vspace{\baselineskip}\end{center}}
+
+\begin{document}
+
+
+\Titre{Préparation au Concours Général \\ Combinatoire - Correction}{Asp J.Buet}{21 mars 2014}
+\thispagestyle{plain}
+\pagestyle{plain}
+
+
+%\title{DM de Mathématiques}
+%\date{19 novembre 2013}
+%\author{Asp. J.Buet}
+%\maketitle{}
+\section{Exercices}
+\subsection{}
+C'est le nombre d'applications de l'ensemble $\{1,2,...n\}$ dans l'ensemble $\{0,1\}$. Il y en a donc $2^n$.
+\subsection{}
+On numérote les $n$ sommets du polygone dans le sens trigonométrique en commençant par l'un quelconque d'entre eux : $A_1, A_2, ..., A_n$. \`A tout ensemble 
+de $4$ sommets $A_i, A_j, A_k, A_l$ $(i<j<k<l)$, correspond un point $M$ où $A_iA_k$ et $A_jA_l$ se recoupent.
+
+Réciproquement, à chaque point d'intersection de deux diagonales situés à l'intérieur du polygone correspond un ensemble de $4$ sommets. Il s'ensuit qu'il 
+existe $\binom{n}{4}=\frac{n(n-1)(n-2)(n-3)}{4!}$ points d'intersection des diagonales du polygone situés en son intérieur.
+\subsection{}
+Soit $E$ l'ensemble des chemins menant de $(0,0)$ à $(m,n)$. Si on désigne par un ``\,$0$\,'' un déplacement horizontal et par un ``\,$1$\,'' un déplacement
+vertical, il apparaît que tout élément de $E$ peu être uniquement représenté par une suite finie de longueur $m+n$ et à valeurs dans l'ensemble $\{0,1\}$
+comportant exactement $m$ ``\,$0$\,''. Si $F$ désigne l'ensemble de ces suites alors $$|F|=\binom{m+n}{m}=\binom{m+n}{n}$$, et comme $E$ et $F$ sont en 
+bijection, il s'ensuit que le nombre de façons d'aller de $(0,0)$ à $(m,n)$ par un chemin où à chaque pas l'une des coordonnées augmente d'une unité est 
+$$\boxed{|E|=\binom{m+n}{m}=\binom{m+n}{n}.}$$
+\subsection{}
+$$\sum\limits_{k=0}^n\binom{n}{k}=\sum\limits_{k=0}^n\binom{n}{k}1^k1^{n-k}$$
+On reconnaît le binôme de Newton.
+$$\boxed{\sum\limits_{k=0}^n\binom{n}{k}=(1+1)^n=2^n}$$
+
+\noindent
+Pour le deuxième calcul, on utilise le fait que si $n,k\geqslant 1$,
+$$k\binom{n}{k}=n\binom{n-1}{k-1},$$
+ce qui permet de conclure :
+$$\sum\limits_{k=0}^nk\binom{n}{k}=\sum\limits_{k=1}^nk\binom{n}{k}=\sum\limits_{k=1}^nn\binom{n-1}{k-1}=n\sum\limits_{k=0}^{n-1}\binom{n-1}{k}=n.2^{n-1}$$.
+\subsection{}
+On note $S(n,p)$ le nombre de surjections d'un ensemble de cardinal $n$ dans un ensemble de cardinal $p$.
+\begin{enumerate}
+\item $S(n,n)=n!$ car cela correspond au nombre de permutations de $\{1,...,n\}$.
+
+Pour qu'il y ait une surjection de $\{1,...,p+1\}$ dans $\{1,...,p\}$, cela veut dire qu'il y a $2$ éléments de l'ensemble de départ qui ont la même image, 
+les autres ont des images deux à deux distinctes. On choisit c'est deux éléments, il y a $\binom{p+1}{2}$ choix possibles. On choisit cette image commune,
+il y a $p$ choix. Puis on envoie les $p-1$ éléments restants dans l'ensemble de départ sur les $p-1$ éléments restants sur l'ensemble d'arrivée. Il y a 
+$(p-1)!$ manière de le faire. Au final, il y a donc $p\binom{p+1}{2}(p-1)!=\frac{p(p+1)!}{2}$ surjections.
+$$\boxed{S(p+1,p)=\frac{p(p+1)!}{2}}$$
+\item On prend un élément quelconque dans l'ensemble d'arrivée. Cet élément a entre $1$ et $n$ antécédents. Supposons qu'il en a $k$, on choisit alors 
+$k$ éléments dans l'ensemble de départ qui seront ses antécédents, il y a $\binom{n}{k}$ manières de les choisir. Puis on envoie les $n-k$ éléments restants
+sur les $p-1$ éléments restants de manière surjective, il y a $S(n-k,p-1)$ manières de le faire. On somme sur tous les $k$ possibles et on obtient :
+$$\boxed{S(n,p)=\sum\limits_{k=1}^n\binom{k}{n}S(n-k,p-1)}$$
+\end{enumerate}
+\subsection{}
+Soit $n\in\mathbb{N}$, il y a deux cas, soit on a une partie qui contient l'entier $n$, soit elle ne le contient pas.
+
+Si elle ne contient pas l'entier $n$ alors il y en a $A_{n-1}$.
+
+Si elle contient l'entier $n$, alors elle ne peut pas contenir l'entier $n-1$, donc elle ne contient que des entiers dans $\{0,...,n-2\}$ en plus de l'entier
+ $n$ et que des entiers non-consécutifs de $\{0,...,n-2\}$. Donc il y en a $A_{n-2}$ tels.
+
+Finalement $A_n=A_{n-1}+A_{n-2}$.
+
+\end{document}
